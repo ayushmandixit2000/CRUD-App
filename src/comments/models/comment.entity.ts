@@ -1,15 +1,15 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity('feed_post')
-export class FeedPostEntity{
+@Entity('feed_comment')
+export class FeedCommentEntity{
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column( {default: ''})
-    title: string;
+    @Column( {default: 0})
+    postid: number;
 
     @Column( {default: ''})
-    body: string;
+    text: string;
     
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
     createdAt: Date;
