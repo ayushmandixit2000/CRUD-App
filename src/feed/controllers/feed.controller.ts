@@ -28,7 +28,7 @@ export class FeedController {
 
 
   @Delete(':id')
-  delete( @Param('id') id: number): Observable<DeleteResult> {
+  delete( @Param('id') id: number): Promise<DeleteResult> {
     return this.feedService.deletePost(id);
   }
 }
