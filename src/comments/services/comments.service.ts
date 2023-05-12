@@ -4,14 +4,14 @@ import { FeedCommentEntity } from '../models/comment.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FeedComment } from '../models/comment.interface';
 import { Observable, from, switchMap } from 'rxjs';
-import { FeedPostEntity } from 'src/feed/models/post.entity';
+import { FeedPostEntity } from '../../feed/models/post.entity';
 import { throwError } from 'rxjs';
 
 @Injectable()
 export class CommentsService {
     constructor(
         @InjectRepository(FeedCommentEntity)
-        private readonly feedCommentRepository: Repository<FeedCommentEntity>,
+        readonly feedCommentRepository: Repository<FeedCommentEntity>,
         @InjectRepository(FeedPostEntity)
         private readonly feedRepository: Repository<FeedPostEntity>,
       ) {}
