@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, ParseUUIDPipe, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common';
 import { CommentsService } from '../services/comments.service';
 import { FeedComment } from '../models/comment.interface';
 import { Observable } from 'rxjs';
@@ -22,16 +22,17 @@ export class CommentsController {
   }
 
   @Put(':id')
+  @UsePipes(ValidationPipe)
   update(
-    @Param('id') id: number,
-    @Body() feedComment: FeedComment,
+    @Param('id',ParseIntPipe) id: number,
+    @Body() feedComment: CommentDto,
   ): Observable<UpdateResult> {
     return this.commentsService.updateComment(id, feedComment);
   }
 
-
   @Delete(':id')
-  delete( @Param('id') id: number): Observable<DeleteResult> {
+  @UsePipes(ValidationPipe)
+  delete( @Param('id',ParseIntPipe) id: number): Observable<DeleteResult> { //add validation here to ensure app does not fail when delete is called
     return this.commentsService.deleteComment(id);
   }
 }

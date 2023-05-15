@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { FeedCommentEntity } from '../models/comment.entity';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -17,17 +17,16 @@ export class CommentsService {
       ) {}
     
       createComment(feedComment: FeedComment): Observable<FeedComment> {
-        // Check if postid exists in FeedPostEntity
         return from(this.feedRepository.findOne({ where: { id: feedComment.postid } })).pipe(
-            switchMap((result) => {
-                if (!result) {
-                    // Postid doesn't exist in FeedPostEntity
-                    return throwError('Postid does not exist in FeedPostEntity');
-                }
-                return from(this.feedCommentRepository.save(feedComment));
-            }),
+          switchMap((result) => {
+            if (!result) {
+              // Postid doesn't exist in FeedPostEntity
+              return throwError(new NotFoundException('Postid does not exist in FeedPostEntity'));
+            }
+            return from(this.feedCommentRepository.save(feedComment));
+          }),
         );
-    }
+      }
     
       findAllComments(): Observable<FeedComment[]> {
         return from(this.feedCommentRepository.find());
@@ -36,7 +35,8 @@ export class CommentsService {
       updateComment(id: number, feedComment: FeedComment): Observable<UpdateResult> {
         // Exclude postId from the update
         const { postid, ...updatedFields } = feedComment;
-        return from(this.feedCommentRepository.update(id, updatedFields));
+        return from(this.feedCommentRepository.update(id, updatedFields)).pipe(
+        );
       }
     
       deleteComment(id: number): Observable<DeleteResult>{
