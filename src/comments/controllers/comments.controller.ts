@@ -1,8 +1,9 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UsePipes, ValidationPipe } from '@nestjs/common';
 import { CommentsService } from '../services/comments.service';
 import { FeedComment } from '../models/comment.interface';
 import { Observable } from 'rxjs';
 import { DeleteResult, UpdateResult } from 'typeorm';
+import { CommentDto } from '../models/comment.dto';
 
 
 @Controller('comments')
@@ -10,7 +11,8 @@ export class CommentsController {
     constructor(private commentsService: CommentsService) {}
 
   @Post()
-  create(@Body() feedComment: FeedComment): Observable<FeedComment> {
+  @UsePipes(ValidationPipe)
+  create(@Body() feedComment: CommentDto): Observable<CommentDto> {
     return this.commentsService.createComment(feedComment);
   }
 
