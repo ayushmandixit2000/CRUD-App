@@ -1,0 +1,32 @@
+table "public"."feed_post" {
+  primaryKey = {
+    columns = [
+      "id"
+    ]
+    name = "PK_1dd475e18c5436c2bd0e56db39a"
+    objectType = primaryKey
+  }
+  columns = (
+    column "id" {
+      type = integer
+      null = NOT NULL
+      default = nextval('public.feed_post_id_seq'::regclass)
+    }
+    column "createdAt" {
+      type = timestamp without time zone
+      null = NOT NULL
+      default = now()
+    }
+    column "body" {
+      type = character varying
+      null = NOT NULL
+      default = ''::character varying
+    }
+    column "title" {
+      type = character varying
+      null = NOT NULL
+      default = ''::character varying
+    }
+  )
+}
+

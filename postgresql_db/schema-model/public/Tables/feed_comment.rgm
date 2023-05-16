@@ -1,0 +1,32 @@
+table "public"."feed_comment" {
+  primaryKey = {
+    columns = [
+      "id"
+    ]
+    name = "PK_3150445d1f5eaea934548589b05"
+    objectType = primaryKey
+  }
+  columns = (
+    column "id" {
+      type = integer
+      null = NOT NULL
+      default = nextval('public.feed_comment_id_seq'::regclass)
+    }
+    column "text" {
+      type = character varying
+      null = NOT NULL
+      default = ''::character varying
+    }
+    column "createdAt" {
+      type = timestamp without time zone
+      null = NOT NULL
+      default = now()
+    }
+    column "postid" {
+      type = integer
+      null = NOT NULL
+      default = 0
+    }
+  )
+}
+

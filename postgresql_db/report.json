@@ -1,0 +1,16 @@
+{
+  "individualResults": [
+    {
+      "schemaVersion": null,
+      "schemaName": "public",
+      "migrations": [],
+      "flywayVersion": "9.17.0",
+      "database": "crudapp",
+      "allSchemasEmpty": false,
+      "timestamp": "2023-05-16T11:31:05.300356",
+      "operation": "info",
+      "exception": null,
+      "licenseFailed": false
+    }
+  ]
+}
