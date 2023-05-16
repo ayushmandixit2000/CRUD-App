@@ -11,6 +11,93 @@
       "operation": "info",
       "exception": null,
       "licenseFailed": false
+    },
+    {
+      "schemaVersion": null,
+      "schemaName": "public",
+      "migrations": [],
+      "flywayVersion": "9.17.0",
+      "database": "crudapp_shadow",
+      "allSchemasEmpty": true,
+      "timestamp": "2023-05-16T11:50:03.939543",
+      "operation": "info",
+      "exception": null,
+      "licenseFailed": false
+    },
+    {
+      "schemaVersion": null,
+      "schemaName": "",
+      "migrations": [],
+      "flywayVersion": "9.17.0",
+      "database": "",
+      "allSchemasEmpty": true,
+      "timestamp": "2023-05-16T11:50:12.128102",
+      "operation": "info",
+      "exception": null,
+      "licenseFailed": false
+    },
+    {
+      "schemaVersion": null,
+      "schemaName": "public",
+      "migrations": [],
+      "flywayVersion": "9.17.0",
+      "database": "crudapp_shadow",
+      "allSchemasEmpty": true,
+      "timestamp": "2023-05-16T11:50:12.499067",
+      "operation": "info",
+      "exception": null,
+      "licenseFailed": false
+    },
+    {
+      "schemaVersion": null,
+      "schemaName": "",
+      "migrations": [],
+      "flywayVersion": "9.17.0",
+      "database": "",
+      "allSchemasEmpty": true,
+      "timestamp": "2023-05-16T11:50:24.505821",
+      "operation": "info",
+      "exception": null,
+      "licenseFailed": false
+    },
+    {
+      "schemaVersion": null,
+      "schemaName": "public",
+      "migrations": [],
+      "flywayVersion": "9.17.0",
+      "database": "crud_baseline",
+      "allSchemasEmpty": false,
+      "timestamp": "2023-05-16T12:04:46.029937",
+      "operation": "info",
+      "exception": null,
+      "licenseFailed": false
+    },
+    {
+      "schemaVersion": null,
+      "schemaName": "",
+      "migrations": [
+        {
+          "category": "Versioned",
+          "version": "001.20230516120536",
+          "rawVersion": "001_20230516120536",
+          "description": "baseline",
+          "type": "SQL_BASELINE",
+          "installedOnUTC": "",
+          "state": "Pending",
+          "undoable": "No",
+          "filepath": "/Users/ayushman/Desktop/crud_api/postgresql_db/migrations/B001_20230516120536__baseline.sql",
+          "undoFilepath": "",
+          "installedBy": "",
+          "executionTime": 0
+        }
+      ],
+      "flywayVersion": "9.17.0",
+      "database": "",
+      "allSchemasEmpty": true,
+      "timestamp": "2023-05-16T12:06:17.083002",
+      "operation": "info",
+      "exception": null,
+      "licenseFailed": false
     }
   ]
 }

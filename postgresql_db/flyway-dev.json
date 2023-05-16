@@ -9,6 +9,22 @@
   "deployment": {
     "flywayConfFiles": [
       "./flyway.conf"
+    ],
+    "targetDatabases": [
+      {
+        "connectionProvider": {
+          "type": "UsernamePassword",
+          "url": "jdbc:postgresql://localhost:5432/crud_baseline",
+          "username": "postgres",
+          "password": {
+            "secretType": "DefaultSecretStore",
+            "name": "Flyway Desktop 12a7df83-8b8c-4a2f-b401-57112dd6f7f7"
+          }
+        },
+        "schemas": [
+          "public"
+        ]
+      }
     ]
   },
   "schemas": [
